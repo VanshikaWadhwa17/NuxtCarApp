@@ -1,34 +1,43 @@
 <template>
   <div>
     <NuxtRouteAnnouncer />
-    <!-- <NuxtWelcome /> -->
-    <!-- Navbar -->
+     <!-- Navbar -->
+  
+     <header class="sticky top-0 z-50 flex justify-between items-center space-x-1 border-b bg-white p-4 shadow-md"> 
+        <a  class ="text-3xl font-mono" href="">CarTrader</a>
+      </header>
+  
+      <!-- Navbar -->
 
-    <header class="sticky top-0 z-50 flex justify-between items-center space-x-1 border-b bg-white p-4 shadow-md"> 
-      <a  class ="text-3xl font-mono" href="">CarTrader</a>
-    </header>
+      <!-- cars page -->
+      <div class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-3/5">
+      <div class="mt-32 flex">
+        <!-- car side bar -->
+        <div class="shadow border w-64 mr-10 z-30 h-[190px]">
+          <div class="p-5 flex justify-between relative cursor-pointer border-b">
+            <h3>Location</h3>
+            <h3 class="text-blue-400 captialize">Toronto</h3>
+            <!-- <div class="absolute border shadow left-56 p-5 top-1 -m-1 bg-white">
+              <input type="text" class="border p-1 rounded"/>
+              <button class="bg-blue-400 w-full mt-2 rounded text-white p-1">Apply</button> -->
+            <!-- </div> -->
+          </div>
+          <div class="p-5 flex justify-between relative cursor-pointer border-b">
+            <h3>Make</h3>
+            <h3 class="text-blue-400 captialize">Toyota</h3>
+          </div>
+          <div class="p-5 flex justify-between relative cursor-pointer border-b">
+            <h3>Price</h3>
+            <h3 class="text-blue-400 captialize">Any</h3>
+          </div>
 
-    <!-- Navbar -->
+        </div>
+        <!-- car side bar -->
 
-    <!-- home hero -->
-    <div class="relative h-screen w-full bg-no-repeat bg-cover bg-center" style="background-image: url('https://carconfigurator.ferrari.com/rt-assets/data/cars/sf90stradale/ui/splashpage.jpg');">
-  <div class="z-10 absolute inset-0 flex justify-center items-center">
-    <div class="text-center w-full px-4 sm:w-1/2">
-      <h1 class="text-6xl sm:text-8xl font-serif mb-10 text-white">Find your drive</h1>
-
-      <!-- home search bar -->
-      <div class="font-serif w-[700px] text-2xl rounded-full bg-white flex justify-between overflow-hidden drop-shadow-2xl mx-auto">
-        <input type="text" class="py-3 px-5 w-full text-2xl rounded-full focus:outline-none" placeholder="search by city..."/>
-        <button class="bg-sky-500 px-10 text-white">Search</button>
+        <!-- car cards -->
+        <!-- car cards -->
       </div>
-      <!-- home search bar -->
-
     </div>
-  </div>
-  <!-- give a little dark tint  -->
-  <div class="z-1 absolute w-full h-full bg-black opacity-50"></div>  
-</div>
-
-    <!-- home hero -->
+      <!-- cars page -->
   </div>
 </template>
