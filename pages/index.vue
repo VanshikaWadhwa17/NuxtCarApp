@@ -13,6 +13,5 @@ import Navbar from "../components/Navbar.vue"
        <Navbar/>
        <CarHero/>
     </div> 
-    
-  </template>
+</template>
   
