@@ -2,15 +2,11 @@
 import CarDetailHero from '../../components/CarDetailHero.vue';
 <script setup>
 const route= useRoute()
+const {toTitleCase}=useUtilities()
 useHead({
     title: toTitleCase(route.params.name)
 })
-function toTitleCase(str) {
-  return str.replace(
-    /\w\S*/g,
-    text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
-  );
-}
+
 definePageMeta({
   layout:"custom"
 })
