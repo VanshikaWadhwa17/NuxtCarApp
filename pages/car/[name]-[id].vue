@@ -22,8 +22,6 @@ function toTitleCase(str) {
           <CarDetailHero/>
           <!-- car hero -->
 
-  <!-- removed extra enclosing divs here -->
-
           <!-- car attributes -->
           <CarDetailAttributes/>
           <!-- car attributes -->
