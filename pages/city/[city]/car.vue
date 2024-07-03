@@ -10,19 +10,17 @@ function toTitleCase(str) {
     text => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
   );
 }
+definePageMeta({
+  layout:"custom"
+})
 </script>
 <template>
 <div>
         <!-- cars page -->
-      <div class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-3/5">
         <div class="mt-32 flex">
-          <!-- car side bar -->
           <CarSideBar/>
-          <!-- car side bar -->
-  
-        <NuxtPage/>
+          <NuxtPage/>
         </div>
-      </div>
         <!-- cars page -->
     </div>
 </template>
