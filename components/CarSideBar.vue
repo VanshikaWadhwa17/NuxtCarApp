@@ -13,6 +13,12 @@ const updateModal=(key)=>{
 const onChangeLocation=()=>{
   // updateModal("location")
   if(!city.value) return
+  if(!isNaN(parseInt(city.value))){
+    throw createError({
+      statusCode: 400,
+      message: "Invalid City Format"
+    }) // this is a client side error- it will not take us to an error.vue instead it will throw a client side error in the console
+  }
   updateModal("location")
   navigateTo(`/city/${city.value}/car/${route.params.make}`)
 }
