@@ -13,13 +13,18 @@ return cars.find((c)=>{
   return c.id===parseInt(route.params.id)
 })
 })
-
 definePageMeta({
   layout:"custom"
 })
+if(!car.value){
+  throw createError({
+    statusCode:404,
+    message:`Car with ID of ${route.params.id} does not exist `
+  })
+}
 </script>
 <template>
-    <div v-if="car">
+    <div>
         <!-- car detail page -->
           <CarDetailHero :car="car"/>
           <CarDetailAttributes :features="car.features"/>
