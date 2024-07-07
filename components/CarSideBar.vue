@@ -7,7 +7,29 @@ const modal =ref({
   price: false
 });
 const city=ref("")
+const priceRange=ref({
+  min:'',
+  max:''
+})
 const route = useRoute()
+const router = useRouter()
+// console.log(route.query)
+
+const priceRangeText = computed(()=>{
+  const minPrice=route.query.minPrice
+  const maxPrice=route.query.maxPrice
+
+  if(!minPrice && !maxPrice) return "Any"
+  else if(!minPrice && maxPrice){
+    return `<$${maxPrice}`
+  }
+  else if(minPrice && !maxPrice){
+    return `>$${minPrice}`
+  }
+  else{
+    return `$${minPrice}-$${maxPrice}`
+  }
+})
 
 const updateModal=(key)=>{
   modal.value[key]= !modal.value[key]
@@ -27,6 +49,20 @@ const onChangeLocation=()=>{
 const onChangeMake=(make)=>{
   updateModal("make");
   navigateTo(`/city/${route.params.city}/car/${make}`)
+}
+const onChangePrice=(price)=>{
+updateModal("price");
+if(priceRange.value.max && priceRange.value.min){
+  if(priceRange.value.min>priceRange.value.max) return 
+  // essentially its better if we throw an error here but for now lets return early
+router.push({
+  query:{
+    minPrice: priceRange.value.min,
+    maxPrice: priceRange.value.max
+  }
+})
+}
+
 }
 </script>
 <template>
@@ -58,7 +94,12 @@ const onChangeMake=(make)=>{
             <!-- price start -->
             <div class="p-5 flex justify-between relative cursor-pointer border-b">
               <h3>Price</h3>
-              <h3 class="text-blue-400 captialize">Any</h3>
+              <h3 class="text-blue-400 captialize" @click="updateModal('price')">{{priceRangeText}}</h3>
+              <div class="absolute border shadow left-56 p-5 top-1 -m-1 bg-white z-50" v-if="modal.price">
+                <input class="border p-1 rounded" type="number" placeholder="Min" v-model="priceRange.min"/>
+                <input class="border p-1 rounded" type="number" placeholder="Max" v-model="priceRange.max"/>
+                <button class="bg-blue-400 w-full mt-2 rounded text-white" @click="onChangePrice">Apply</button>
+              </div>
             </div>
             <!-- price end -->
   
@@ -66,3 +107,9 @@ const onChangeMake=(make)=>{
           <!-- car side bar -->
     </div>
 </template>
+
+<!-- NOTE: when we will add the min and max price- it will add a query parameter in the route itself like: 
+
+http://localhost:3000/city/ottowa/car/Genesis?minPrice=4000&maxPrice=10000
+-> if we manually put this URL in the tab- in the console.log(route.query)-> it will return an object in which we will have 2 values: minPrice =4000 and maxPrice=10000
+if there is no query param: Any price range should be shown: for this we will use a computed property -->
