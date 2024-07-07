@@ -17,7 +17,9 @@ const handleFavourite=(id)=>{
 <template>
     <div>
         <div class="w-full ">
+            <ClientOnly>
             <CarCard v-for="car in cars" :key="car.id" :car="car" @favor="handleFavourite" :favored="car.id in favourite"/>
+            </ClientOnly>
             <!-- here will have to listen to the emitted event favor from the child  and will also have to pass it as a prop to the child to get the proper heart image (filled/empty)-->
         </div>
     </div>
