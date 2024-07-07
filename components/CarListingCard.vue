@@ -13,7 +13,7 @@ const props=defineProps({
             </div>
         </div>
         <div class="p-3 flex">
-            <NuxtLink class="text-blue-400 mr-4" :to="`/profile/listing/view/${listing.id}`">
+            <NuxtLink class="text-blue-400 mr-4" :to="`/profile/listings/view/${listing.id}`">
                 View
             </NuxtLink>
             <p class="text-red-400 cursor-pointer">Delete</p>
