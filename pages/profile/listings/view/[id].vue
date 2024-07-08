@@ -15,3 +15,5 @@ definePageMeta({
         </div>
     </div>
 </template>
+
+<!-- http://localhost:3000/profile/listings/view/:car-id -->
